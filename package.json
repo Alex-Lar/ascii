@@ -1,23 +1,38 @@
 {
-  "name": "ascii",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@types/node": "^24.6.2",
-    "ts-node": "^10.9.2",
-    "tslib": "^2.8.1",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "yargs": "^18.0.0"
-  }
+    "name": "@alexlar/ascii",
+    "version": "0.0.1",
+    "description": "",
+    "main": "./dist/index.mjs",
+    "bin": {
+        "ascii": "bin/ascii"
+    },
+    "scripts": {
+        "build": "npm run type-check && tsup",
+        "type-check": "tsc --noEmit --project tsconfig.json"
+    },
+    "keywords": [
+        "ascii",
+        "table",
+        "cheatsheet",
+        "cli"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Alex-Lar/ascii.git"
+    },
+    "author": "Alexander Larin",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "@types/node": "^24.6.2",
+        "@types/yargs": "^17.0.34",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.8.1",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "console-table-printer": "^2.15.0",
+        "yargs": "^18.0.0"
+    }
 }

@@ -1,37 +1,54 @@
 {
 	"compilerOptions": {
-		"rootDir": "./src",
-		"outDir": "./dist",
-		"module": "nodenext",
-		"target": "esnext",
+		"target": "es2022",
+		"module": "esnext",
 		"lib": [
-			"esnext"
+			"ES2022"
 		],
 		"types": [
 			"node"
 		],
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
 		"noEmit": true,
-		"sourceMap": false,
-		"declaration": false,
-		"declarationMap": false,
-		"noUncheckedIndexedAccess": true,
-		"exactOptionalPropertyTypes": true,
-		// Style Options
-		"noImplicitReturns": true,
-		"noImplicitOverride": true,
+		"baseUrl": "./",
+		"outDir": "dist",
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
 		"noPropertyAccessFromIndexSignature": true,
-		// Recommended Options
-		"strict": true,
-		"verbatimModuleSyntax": false,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": false,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": false,
+		"importHelpers": true,
+		"removeComments": true,
 		"isolatedModules": true,
-		"noUncheckedSideEffectImports": true,
-		"moduleDetection": "force",
-		"skipLibCheck": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"exactOptionalPropertyTypes": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
 	},
+	"include": [
+		"src/**/*.ts",
+	],
 	"exclude": [
-		"*.ignore.*"
+		"*.ignore.*",
+		"__mocks__",
+		"__tests__",
+		"node_modules",
+		"dist",
+		"example",
 	]
 }

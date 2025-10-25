@@ -3,9 +3,14 @@
     "version": "0.0.1",
     "description": "",
     "main": "./dist/index.mjs",
+    "type": "module",
     "bin": {
         "ascii": "bin/ascii"
     },
+    "files": [
+        "dist",
+        "bin"
+    ],
     "scripts": {
         "build": "npm run type-check && tsup",
         "type-check": "tsc --noEmit --project tsconfig.json"
@@ -22,7 +27,6 @@
     },
     "author": "Alexander Larin",
     "license": "ISC",
-    "type": "commonjs",
     "devDependencies": {
         "@types/node": "^24.6.2",
         "@types/yargs": "^17.0.34",

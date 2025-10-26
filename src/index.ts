@@ -1,6 +1,11 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { parseCharPrefix, parseCode } from './parser';
+import {
+    parseAndValidateRangeArg,
+    parseAndValidateCodeArgs,
+    parseAndValidateCharArgs,
+    validateRangeArgs,
+} from './parser';
 import { prepareRootOptions, prepareSharedOptions } from './shared/options';
 import { charCommand, codeCommand, descCommand, rangeCommand, rootCommand } from './commands';
 
@@ -60,12 +65,15 @@ yargs(hideBin(process.argv))
                 .positional('from', {
                     type: 'string',
                     describe: 'Start character/code (use c: prefix for digit characters)',
-                    coerce: parseCharPrefix,
+                    coerce: parseAndValidateRangeArg,
                 })
                 .positional('to', {
                     type: 'string',
                     describe: 'End character/code (use c: prefix for digit characters)',
-                    coerce: parseCharPrefix,
+                    coerce: parseAndValidateRangeArg,
+                })
+                .check(argv => {
+                    return validateRangeArgs(argv.from, argv.to) ?? true;
                 });
         },
         argv => {
@@ -82,12 +90,12 @@ yargs(hideBin(process.argv))
                 describe: 'Character codes in binary (0b), octal (0o), decimal, or hex (0x) format',
                 demandOption: true,
                 array: true,
+                coerce: parseAndValidateCodeArgs,
             });
         },
         argv => {
             const options = prepareSharedOptions(argv);
-            const codes = argv.codes.map(code => parseCode(code));
-            codeCommand(codes, options);
+            codeCommand(argv.codes, options);
         }
     )
     .command(
@@ -99,6 +107,7 @@ yargs(hideBin(process.argv))
                 describe: 'Character symbols (special names like "nul" accepted)',
                 demandOption: true,
                 array: true,
+                coerce: parseAndValidateCharArgs,
             });
         },
         argv => {
@@ -168,9 +177,11 @@ yargs(hideBin(process.argv))
     })
     .example('ascii --escape --json', 'Show escape characters in JSON format')
     .example('ascii range 0 5', 'Display rows 0 to 5')
+    .example('ascii range c:0 c:5', 'Display rows from character "0" to character "5"')
     .example('ascii code 0x41 65 0b1000001', 'Display character by codes in different bases')
     .example('ascii char A nul', 'Display specific characters')
     .example('ascii desc upper', 'Search characters by description')
     .demandCommand(1, 'Please specify a command')
+    .showHelpOnFail(false, 'Specify --help for available options')
     .strict()
-    .help().argv;
+    .help('help').argv;

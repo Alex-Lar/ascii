@@ -13,7 +13,8 @@
     ],
     "scripts": {
         "build": "npm run type-check && tsup",
-        "type-check": "tsc --noEmit --project tsconfig.json"
+        "type-check": "tsc --noEmit --project tsconfig.json",
+        "test": "vitest"
     },
     "keywords": [
         "ascii",
@@ -33,7 +34,8 @@
         "ts-node": "^10.9.2",
         "tslib": "^2.8.1",
         "tsup": "^8.5.0",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "vitest": "^4.0.3"
     },
     "dependencies": {
         "console-table-printer": "^2.15.0",

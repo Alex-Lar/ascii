@@ -1,5 +1,5 @@
 import { isNumber, isString } from '../../shared/guards';
-import { asciiTable, codeMap } from './data';
+import { asciiTable, codeMap } from './ascii-table';
 
 export function shouldNormalizeCase(code: number): boolean {
     const controlCharsRange = { low: 0, high: 31 };
@@ -74,7 +74,7 @@ export function getRowRange(from: string | number, to: string | number) {
     return rowRange;
 }
 
-export function getRowsByDesc(substring: string): string[][] | undefined {
+export function getRowsByDesc(substring: string): string[][] {
     return getAllRows().filter(rows => rows[1]!.toLowerCase().includes(substring.toLowerCase()));
 }
 

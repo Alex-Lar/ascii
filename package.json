@@ -1,7 +1,7 @@
 {
     "name": "@alexlar/ascii",
     "version": "0.0.1",
-    "description": "",
+    "description": "A lightweight command-line utility for quick ASCII table lookups",
     "main": "./dist/index.mjs",
     "type": "module",
     "bin": {

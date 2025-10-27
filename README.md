@@ -6,7 +6,7 @@ A lightweight command-line utility for quick ASCII table lookups.
   <img src="./misk/ascii-example.png"
        alt="ascii example"
        width="650"
-       style="border-radius: .8rem;">
+       >
 </div>
 
 ## Features

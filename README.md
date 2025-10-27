@@ -2,6 +2,13 @@
 
 A lightweight command-line utility for quick ASCII table lookups.
 
+<div align="center">
+  <img src="./misk/ascii-example.png"
+       alt="ascii example"
+       width="650"
+       style="border-radius: .8rem;">
+</div>
+
 ## Features
 
 -   **Quick Lookups** - Find characters by code or symbol in one command

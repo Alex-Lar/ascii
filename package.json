@@ -28,7 +28,7 @@
         "url": "https://github.com/Alex-Lar/ascii.git"
     },
     "author": "Alexander Larin",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@types/node": "^24.6.2",
         "@types/yargs": "^17.0.34",

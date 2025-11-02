@@ -4,8 +4,7 @@ A lightweight command-line utility for quick ASCII table lookups.
 
 <div align="center">
   <img src="./misk/ascii-example.png"
-       alt="ascii example"
-       width="650"
+       alt="ascii table example"
        >
 </div>
 
